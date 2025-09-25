@@ -13,14 +13,14 @@ public class DatabaseTest {
     public void testAvailableBunsNotEmpty() {
         Database db = new Database();
         List<Bun> buns = db.availableBuns();
-        assertThat("Список булочек не должен быть пустым", buns, is(not(empty())));
+        assertThat("Список булочек не  должен быть пустым", buns, is(not(empty())));
     }
 
     @Test
     public void testAvailableIngredientsNotEmpty() {
         Database db = new Database();
         List<Ingredient> ingredients = db.availableIngredients();
-        assertThat("Список ингредиентов не должен быть пустым", ingredients, is(not(empty())));
+        assertThat("Список ингредиентов  не должен быть пустым", ingredients, is(not(empty())));
     }
 
     @Test

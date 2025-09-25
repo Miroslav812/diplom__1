@@ -43,6 +43,6 @@ public class IngredientTest {
 
     @Test
     public void testIngredientToString() {
-        assertThat("Проверка метода toString ингредиента", ingredient.toString(), containsString(expectedName));
+        assertThat("Проверка  метода toString ингредиента", ingredient.toString(), containsString(expectedName));
     }
 }

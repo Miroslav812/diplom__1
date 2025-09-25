@@ -9,8 +9,8 @@ public class BunTest {
     @Test
     public void testBunCreation() {
         Bun bun = new Bun("White Bun", 150);
-        assertThat("Проверка имени булочки", bun.getName(), is("White Bun"));
-        assertThat("Проверка цены булочки", bun.getPrice(), is(150f));
+        assertThat("Проверка  имени булочки", bun.getName(), is("White Bun"));
+        assertThat("Проверка  цены булочки", bun.getPrice(), is(150f));
     }
 
     @Test(expected = IllegalArgumentException.class)

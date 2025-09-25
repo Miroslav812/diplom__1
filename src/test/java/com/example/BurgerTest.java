@@ -36,7 +36,7 @@ public class BurgerTest {
         burger.addIngredient(mockIngredient);
 
         float expectedPrice = 100f * 2 + 50f + 50f; // булка * 2 + ингредиенты
-        assertThat("Проверка расчёта цены бургера", burger.getPrice(), is(expectedPrice));
+        assertThat("Проверка  расчёта цены бургера", burger.getPrice(), is(expectedPrice));
     }
 
     @Test
@@ -45,8 +45,8 @@ public class BurgerTest {
         burger.addIngredient(mockIngredient);
 
         String receipt = burger.getReceipt();
-        assertThat("Чек содержит название булочки", receipt, containsString("Mock Bun"));
-        assertThat("Чек содержит название ингредиента", receipt, containsString("Mock Ingredient"));
+        assertThat("Чек  содержит название булочки", receipt, containsString("Mock Bun"));
+        assertThat("Чек  содержит название ингредиента", receipt, containsString("Mock Ingredient"));
     }
 
     @Test(expected = IllegalArgumentException.class)
