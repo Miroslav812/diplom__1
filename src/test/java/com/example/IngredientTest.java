@@ -1,5 +1,8 @@
 package com.example;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -26,7 +29,7 @@ public class IngredientTest {
         this.expectedType = expectedType;
     }
 
-    @Parameterized.Parameters(name = "{index}: {1}")
+    @Parameterized.Parameters(name = "{index}: Проверка ингредиента {1}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {new Ingredient(IngredientType.SAUCE, "Hot Sauce", 100), "Hot Sauce", 100f, IngredientType.SAUCE},
@@ -35,14 +38,40 @@ public class IngredientTest {
     }
 
     @Test
+    @DisplayName("Проверка свойств ингредиента")
+    @Description("Убедимся, что у ингредиента корректно заданы имя, цена и тип")
     public void testIngredientProperties() {
-        assertThat("Проверка имени ингредиента", ingredient.getName(), is(expectedName));
-        assertThat("Проверка цены ингредиента", ingredient.getPrice(), is(expectedPrice));
-        assertThat("Проверка типа ингредиента", ingredient.getType(), is(expectedType));
+        checkIngredientName();
+        checkIngredientPrice();
+        checkIngredientType();
     }
 
     @Test
+    @DisplayName("Метод toString содержит имя ингредиента")
+    @Description("Проверяем, что метод toString возвращает строку с именем ингредиента")
     public void testIngredientToString() {
-        assertThat("Проверка  метода toString ингредиента", ingredient.toString(), containsString(expectedName));
+        checkToStringContainsName();
+    }
+
+    // ---------- Allure steps ----------
+
+    @Step("Проверяем, что имя ингредиента = {expectedName}")
+    private void checkIngredientName() {
+        assertThat(ingredient.getName(), is(expectedName));
+    }
+
+    @Step("Проверяем, что цена ингредиента = {expectedPrice}")
+    private void checkIngredientPrice() {
+        assertThat(ingredient.getPrice(), is(expectedPrice));
+    }
+
+    @Step("Проверяем, что тип ингредиента = {expectedType}")
+    private void checkIngredientType() {
+        assertThat(ingredient.getType(), is(expectedType));
+    }
+
+    @Step("Проверяем, что toString содержит '{expectedName}'")
+    private void checkToStringContainsName() {
+        assertThat(ingredient.toString(), containsString(expectedName));
     }
 }
