@@ -11,8 +11,8 @@ import static org.hamcrest.Matchers.*;
 public class BunTest {
 
     @Test
-    @DisplayName("Создание булочки с корректными данными")
-    @Description("Проверка имени и цены булочки при создании")
+    @DisplayName("Создание  булочки с корректными данными")
+    @Description("Проверка  имени и цены булочки при создании")
     public void testBunCreation() {
         Bun bun = new Bun("White Bun", 150);
         checkBunName(bun, "White Bun");
@@ -20,8 +20,8 @@ public class BunTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    @DisplayName("Создание булочки с null-именем")
-    @Description("Ожидаем IllegalArgumentException при передаче null в name")
+    @DisplayName("Создание  булочки с null-именем")
+    @Description("Ожидаем  IllegalArgumentException при передаче null в name")
     public void testBunNameNull() {
         new Bun(null, 100);
     }

@@ -9,7 +9,7 @@ public class Burger {
     public List<Ingredient> ingredients = new ArrayList<>();
 
     public void setBuns(Bun bun) {
-        if (bun == null) throw new IllegalArgumentException("Bun cannot be null");
+        if (bun == null) throw new IllegalArgumentException("Bun  cannot be null");
         this.bun = bun;
     }
 
@@ -20,13 +20,13 @@ public class Burger {
 
     public void removeIngredient(int index) {
         if (index < 0 || index >= ingredients.size())
-            throw new IndexOutOfBoundsException("Invalid ingredient index");
+            throw new IndexOutOfBoundsException("Invalid  ingredient index");
         ingredients.remove(index);
     }
 
     public void moveIngredient(int index, int newIndex) {
         if (index < 0 || index >= ingredients.size() || newIndex < 0 || newIndex > ingredients.size())
-            throw new IndexOutOfBoundsException("Invalid ingredient index");
+            throw new IndexOutOfBoundsException("Invalid  ingredient index");
         ingredients.add(newIndex, ingredients.remove(index));
     }
 
